@@ -18,6 +18,10 @@
 		A6633408168DA24D003D46BE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6633407168DA24D003D46BE /* Default-568h@2x.png */; };
 		A663340B168DA24D003D46BE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6633409168DA24D003D46BE /* MainStoryboard.storyboard */; };
 		A663340E168DA24D003D46BE /* GSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A663340D168DA24D003D46BE /* GSViewController.m */; };
+		A6D6071C168EF1FA00F9D791 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D6071B168EF1FA00F9D791 /* CoreLocation.framework */; };
+		A6D6071F168EF20100F9D791 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D6071E168EF20100F9D791 /* MapKit.framework */; };
+		A6D6072216913E8200F9D791 /* map_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D6072016913E8200F9D791 /* map_marker.png */; };
+		A6D6072316913E8200F9D791 /* map_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D6072116913E8200F9D791 /* map_marker@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		A663340A168DA24D003D46BE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		A663340C168DA24D003D46BE /* GSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSViewController.h; sourceTree = "<group>"; };
 		A663340D168DA24D003D46BE /* GSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSViewController.m; sourceTree = "<group>"; };
+		A6D6071B168EF1FA00F9D791 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A6D6071E168EF20100F9D791 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A6D6072016913E8200F9D791 /* map_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_marker.png; sourceTree = "<group>"; };
+		A6D6072116913E8200F9D791 /* map_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_marker@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6D6071F168EF20100F9D791 /* MapKit.framework in Frameworks */,
+				A6D6071C168EF1FA00F9D791 /* CoreLocation.framework in Frameworks */,
 				A66333F2168DA24D003D46BE /* UIKit.framework in Frameworks */,
 				A66333F4168DA24D003D46BE /* Foundation.framework in Frameworks */,
 				A66333F6168DA24D003D46BE /* CoreGraphics.framework in Frameworks */,
@@ -56,6 +66,8 @@
 		A66333E2168DA24D003D46BE = {
 			isa = PBXGroup;
 			children = (
+				A6D6071E168EF20100F9D791 /* MapKit.framework */,
+				A6D6071B168EF1FA00F9D791 /* CoreLocation.framework */,
 				A66333F7168DA24D003D46BE /* GeofencingSample */,
 				A66333F0168DA24D003D46BE /* Frameworks */,
 				A66333EE168DA24D003D46BE /* Products */,
@@ -96,6 +108,8 @@
 		A66333F8168DA24D003D46BE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A6D6072016913E8200F9D791 /* map_marker.png */,
+				A6D6072116913E8200F9D791 /* map_marker@2x.png */,
 				A66333F9168DA24D003D46BE /* GeofencingSample-Info.plist */,
 				A66333FA168DA24D003D46BE /* InfoPlist.strings */,
 				A66333FD168DA24D003D46BE /* main.m */,
@@ -164,6 +178,8 @@
 				A6633406168DA24D003D46BE /* Default@2x.png in Resources */,
 				A6633408168DA24D003D46BE /* Default-568h@2x.png in Resources */,
 				A663340B168DA24D003D46BE /* MainStoryboard.storyboard in Resources */,
+				A6D6072216913E8200F9D791 /* map_marker.png in Resources */,
+				A6D6072316913E8200F9D791 /* map_marker@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +309,7 @@
 				A6633413168DA24D003D46BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

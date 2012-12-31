@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <MapKit/MapKit.h>
 @interface GSViewController : UIViewController
+
+-(IBAction) fixPositionButtonTouched:(id)sender;
+-(IBAction) rangeChanged:(id)sender;
+// マップビュー
+@property(nonatomic,strong) IBOutlet MKMapView *		_mapView;
+// ジオフェンス中心点を設定するボタン
+@property(nonatomic,strong) IBOutlet UIButton *			_fixPositionButton;
+// ジオフェンス作動範囲を設定するスライダー
+@property(nonatomic,strong) IBOutlet UISlider *			_rangeSlider;
 
 @end

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface GSAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+#import <MapKit/MapKit.h>
+@interface GSAppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>
+-(BOOL)saveGeofenceInfo:(NSDictionary*) dict;
+-(NSDictionary*)loadGeofenceInfo;
+@property (strong, nonatomic) CLLocationManager*	locationManager;
+@property (strong, nonatomic) UIWindow*			window;
 
 @end

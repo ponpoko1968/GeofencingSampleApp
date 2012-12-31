@@ -12,9 +12,30 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    return YES;
+  // Override point for customization after application launch.
+  self.locationManager = [[CLLocationManager alloc] init];
+  self.locationManager.delegate = self;
+  [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+  [self.locationManager setDistanceFilter:kCLDistanceFilterNone];
+  [self.locationManager startUpdatingLocation];
+
+  return YES;
 }
+
+-(BOOL)saveGeofenceInfo:(NSDictionary*) dict
+{
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  [defaults setObject:dict forKey:@"GeofenceInfo"];
+  return [defaults synchronize];
+}
+
+-(NSDictionary*)loadGeofenceInfo
+{
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSDictionary *dict = [defaults dictionaryForKey:@"GeofenceInfo"];
+  return dict;
+}
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

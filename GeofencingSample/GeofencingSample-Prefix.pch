@@ -12,3 +12,10 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#define Log(fmt, ...)	NSLog((@"%s:%d " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define Log1(obj)	Log(@"%s = %@", #obj, obj)
+#define Log2(fmt,obj)   Log(@"%s = " @#fmt, #obj, obj)
+#define LogPoint(p)	Log(@"%s = %@", #p, NSStringFromCGPoint(p))
+#define LogRect(r)	Log(@"%s = %@", #r, NSStringFromCGRect(r))
+#define LogSize(s)	Log(@"%s = %@", #s, NSStringFromCGSize(s))
