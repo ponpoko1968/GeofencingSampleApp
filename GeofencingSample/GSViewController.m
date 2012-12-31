@@ -8,6 +8,10 @@
 #import "GSAppDelegate.h"
 #import "GSViewController.h"
 
+
+/*!
+  @abstract 地図の中心を「×」イメージで表現するアノテーションクラス
+ */
 @interface CenterAnnotationView : MKAnnotationView
 @end
 @implementation CenterAnnotationView
@@ -43,12 +47,18 @@
 
 @end
 
+/*!
+  @abstract 地図の中心を表現するアノテーションクラス
+ */
 @interface CenterAnnotation : PointAnnotation
 @end
 
 @implementation CenterAnnotation
 @end
 
+/*!
+  @abstract ジオフェンスの中心を表現するアノテーションクラス
+ */
 @interface GeofenceAnnotation : PointAnnotation
 @end
 
@@ -57,7 +67,28 @@
 
 
 @interface GSViewController ()
+
+/*!
+  @abstract ジオフェンス領域を表現するアノテーションビューを設定する  
+  @param coordinate
+  ジオフェンス領域の中心
+  @param radius
+  ジオフェンス領域の範囲(半径:メートル単位)
+ */
+-(void)placeGeofenceAt:(CLLocationCoordinate2D) coordinate radius:(CLLocationDistance) radius;
+
+/*!
+  @abstract 指定した緯度経度に地図の中心を移動させる
+  @param latitude
+  緯度
+  @param longitude
+  経度
+ */
 -(void) zoomMapAndCenterAtLatitude:(double) latitude andLongitude:(double) longitude;
+
+/*!
+  @abstract ジオフェンスの中心位置と範囲を保存する
+ */
 -(void) save;
 @property (nonatomic,strong) CenterAnnotation*		_centerAnnotation;
 @property (nonatomic,strong) GeofenceAnnotation*	_geofenceAnnotation;
@@ -134,6 +165,8 @@
   [app saveGeofenceInfo:data];
 
 }
+/*!
+ */
 -(void)placeGeofenceAt:(CLLocationCoordinate2D) coordinate radius:(CLLocationDistance) radius
 {
   // 「ピン」の表示
