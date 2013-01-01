@@ -38,11 +38,18 @@
                                     <action selector="fixPositionButtonTouched:" destination="2" eventType="touchUpInside" id="a6S-FZ-np7"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EuO-U5-0jP">
+                                <connections>
+                                    <action selector="toggleMonitoring:" destination="2" eventType="valueChanged" id="IrZ-cq-qoW"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="EuO-U5-0jP" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="6Fu-Ky-UUf"/>
                             <constraint firstItem="DnP-EE-azK" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="Btx-5D-zOG"/>
                             <constraint firstAttribute="trailing" secondItem="XFH-cm-U2M" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Bvu-ng-14e"/>
+                            <constraint firstItem="EuO-U5-0jP" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="L6j-kM-ogC"/>
                             <constraint firstItem="pV3-V7-JdF" firstAttribute="centerX" secondItem="XFH-cm-U2M" secondAttribute="centerX" type="default" id="PVS-WJ-JIZ"/>
                             <constraint firstItem="XFH-cm-U2M" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="U8X-k6-eEr"/>
                             <constraint firstAttribute="bottom" secondItem="XFH-cm-U2M" secondAttribute="bottom" constant="92" id="ZEK-za-Bd1"/>
@@ -55,6 +62,7 @@
                     <connections>
                         <outlet property="_fixPositionButton" destination="pV3-V7-JdF" id="xT2-GT-vXz"/>
                         <outlet property="_mapView" destination="DnP-EE-azK" id="21d-JF-AHJ"/>
+                        <outlet property="_monitoringSwitch" destination="EuO-U5-0jP" id="ri8-qV-vJo"/>
                         <outlet property="_rangeSlider" destination="XFH-cm-U2M" id="8iB-Uf-Zsj"/>
                     </connections>
                 </viewController>
@@ -68,8 +76,10 @@
             <relationships>
                 <relationship kind="action" name="fixPositionButtonTouched:"/>
                 <relationship kind="action" name="rangeChanged:"/>
+                <relationship kind="action" name="toggleMonitoring:"/>
                 <relationship kind="outlet" name="_fixPositionButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="_mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="_monitoringSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="_rangeSlider" candidateClass="UISlider"/>
             </relationships>
         </class>

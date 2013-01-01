@@ -36,6 +36,56 @@
   return dict;
 }
 
+-(BOOL)isMonitoringActivated
+{
+  NSArray *regionArray = [[self.locationManager monitoredRegions] allObjects];
+  return [regionArray count] > 0;
+}
+
+-(void)activateMonitoring
+{
+  NSDictionary* regionData = [self loadGeofenceInfo];
+  if (regionData) {
+    // 設定済みデータあり.
+
+    // 領域を作成し観測を開始する
+    float radiusOnMeter = [[regionData valueForKey:@"geofenceRadius"] doubleValue];
+
+    CLLocationCoordinate2D coordinate =
+      CLLocationCoordinate2DMake([[regionData valueForKey:@"geofenceCenterLatitude"] doubleValue],
+				 [[regionData valueForKey:@"geofenceCenterLongitude"] doubleValue]);
+    CLRegion *grRegion = [[CLRegion alloc] initCircularRegionWithCenter:coordinate radius:radiusOnMeter identifier:@"Home"];
+    Log(@"lat=%lf long=%lf radius=%f", coordinate.latitude, coordinate.longitude, radiusOnMeter);
+    Log(@"Start Monitoring");
+    [self.locationManager startMonitoringForRegion:grRegion];
+    Log(@"Monitored Regions: %i", [[self.locationManager monitoredRegions] count]);
+  }
+    
+}
+
+-(void)deactivateMonitoring
+{
+  NSArray *regionArray = [[self.locationManager monitoredRegions] allObjects];
+  Log(@"monitoredRegions# before stop = %d", [regionArray count]);
+  for (int i = 0; i < [regionArray count]; i++) { // loop through array of regions turning them off
+    [self.locationManager stopMonitoringForRegion:[regionArray objectAtIndex:i]];
+  }
+  regionArray = [[self.locationManager monitoredRegions] allObjects];
+  Log(@"monitoredRegions# after stop = %d", [regionArray count]);
+}
+
+
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
+{
+    Log(@"Exited Region");
+}
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
+{
+    Log(@"Entered Region");
+}
+
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

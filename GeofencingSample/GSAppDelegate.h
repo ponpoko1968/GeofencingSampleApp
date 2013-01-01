@@ -11,6 +11,10 @@
 @interface GSAppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>
 -(BOOL)saveGeofenceInfo:(NSDictionary*) dict;
 -(NSDictionary*)loadGeofenceInfo;
+-(BOOL)isMonitoringActivated;
+-(void)activateMonitoring;
+-(void)deactivateMonitoring;
+
 @property (strong, nonatomic) CLLocationManager*	locationManager;
 @property (strong, nonatomic) UIWindow*			window;
 

@@ -112,9 +112,11 @@
 			andLongitude:coordinate.longitude];
     [self placeGeofenceAt:coordinate radius:[[data valueForKey:@"geofenceRadius"] doubleValue]];
     self._rangeSlider.value = [self sliderValueFromRadiusOnMeter:[[data valueForKey:@"geofenceRadius"] doubleValue]];
+    self._monitoringSwitch.enabled = YES;
   }else{
     [self._mapView.userLocation addObserver:self forKeyPath:@"location" options:0 context:NULL];
     self._rangeSlider.enabled = NO;
+    self._monitoringSwitch.enabled = NO;
     // デフォルト範囲を100mに設定
     self._rangeSlider.value = [self sliderValueFromRadiusOnMeter:100.0f];
   }
@@ -213,9 +215,21 @@
   self._geofenceRange = [MKCircle circleWithCenterCoordinate: self._geofenceAnnotation.coordinate
 						      radius: [self radiusOnMeterWithSliderValue:self._rangeSlider.value]];
   [self._mapView addOverlay:self._geofenceRange];
+  self._monitoringSwitch.enabled = YES;
   [self save];
+  
 
+}
+-(IBAction) toggleMonitoring:(id)sender
+{
+  UISwitch* monitorSwitch = sender;
+  GSAppDelegate* app = (GSAppDelegate*)[[UIApplication sharedApplication] delegate];
 
+  if(monitorSwitch.on){
+    [app activateMonitoring];
+  }else{
+    [app deactivateMonitoring];
+  }
 }
 
 
